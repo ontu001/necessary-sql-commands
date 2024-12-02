@@ -3,7 +3,7 @@ INSERT INTO students
 (sid, sname, semester, courseid,credit)
 VALUES 
 (2020688, 'ROHANUR RAHMAN ONTU', 'SUMMER', 'CEN201', 3),
-(2020699, 'Lamia Alif Rouza', 'WINTER', 'CSE301L', 1),
+(2020699, 'Afif', 'WINTER', 'CSE301L', 1),
 (2020711, 'SNIRA SUCHI', 'AUTUMN', 'ANT101', 3);
 
 
