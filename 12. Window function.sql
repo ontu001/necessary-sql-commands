@@ -36,5 +36,31 @@ from test_data
 
 
 
+--Window fnction using rank function
+--row_number, rank, dense_rank, percent_rank
+select * ,
+--u can use partition with the rank function as well
+--row_number() over(partition by new_cat order by new_id)as "row_number",
+row_number() over(order by new_id)as "row_number",
+--it will just return the rank number based on the value
+
+
+rank() over( order by new_id)as "rank",
+--It will return then rank number by skipping the duplicate rank 
+
+
+dense_rank() over( order by new_id)as "dense_rank",
+--It will return then rank number without skipping the duplicate rank 
+
+
+ROUND(CAST(PERCENT_RANK() OVER (ORDER BY new_id) AS numeric), 3) AS "percent_rank"
+--it returns percentage of the rabnk number based on the value
+--here I use CAST for limit the digit after float and its applicable for postgreesql
+from test_data
+
+
+
+
+
 
 
