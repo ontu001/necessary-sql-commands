@@ -94,3 +94,13 @@ from test_data
 
 
 
+--*Asssignment: Offset the lead and ag values by 2 in the output coloums.
+select * ,
+lead(new_id,2) over( order by new_id)as "lead",
+lag(new_id,2) over( order by new_id)as "lag"
+--Just add 2 after the column name inside the lead and lag function
+
+from test_data
+
+
+
