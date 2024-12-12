@@ -63,4 +63,34 @@ from test_data
 
 
 
+--Analytic function
+--first_value, last_value, lead,lag
+select * ,
+
+first_value(new_id) over(order by new_id)as "first",
+--it will return the fist value of the new_id row
+
+
+
+last_value(new_id) over( order by new_id rows between unbounded preceding and unbounded following)as "last",
+--it will return the last value of the new_id row
+--#without rows caluse it will not return the last value, it will just copy and paste the new_id coloumn
+
+
+
+
+lead(new_id) over( order by new_id)as "lead",
+--It alwasy ignore the previous value and move/lead to the next value and at the last value it will give null becasue it can't find ny next value for the last term
+
+
+lag(new_id) over( order by new_id)as "lag"
+--it is just the opposite of lead, it ignore the next value and follow the previous value
+from test_data
+
+
+
+
+
+
+
 
