@@ -32,7 +32,7 @@ FROM my_cte;
 
 --We can also write multiple cte using one WITH function like
 WITH my_cte AS (
-    SELECT p.*,c.address_id,
+    SELECT *,
         ROUND(AVG(amount) OVER (ORDER BY p.customer_id), 2) AS Average_price,
         COUNT(address_id) OVER (ORDER BY c.customer_id) AS count
     FROM payment AS p
@@ -43,7 +43,7 @@ new_cte AS (
     SELECT *,
         MAX(amount) OVER (ORDER BY customer_id) AS max_amount,
         MIN(amount) OVER (ORDER BY customer_id) AS min_amount
-    FROM my_cte
+    FROM payment
 )
-SELECT count, Average_price, max_amount, min_amount
-FROM new_cte;
+SELECT count, Average_price, pp.max_amount, pp.min_amount
+FROM new_cte as pp, my_cte;
