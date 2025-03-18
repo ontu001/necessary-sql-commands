@@ -1,4 +1,4 @@
--- To create a new database
+-- To create a new database you can write
 CREATE DATABASE testbd
 
 --To Delete DATABASE
